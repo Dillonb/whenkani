@@ -20,11 +20,11 @@ def human_time(seconds)
   if seconds < 60
     "#{seconds} seconds"
   elsif seconds < (60 * 60)
-    "#{seconds / 60} minutes"
+    "#{seconds / 60} minutes #{human_time(seconds % 60)}"
   elsif seconds < (60 * 60 * 24)
-    "#{seconds / (60 * 60)} hours"
+    "#{seconds / (60 * 60)} hours #{human_time(seconds % (60 * 60))}"
   else
-    "#{seconds / (60 * 60 * 24)} days"
+    "#{seconds / (60 * 60 * 24)} days #{human_time(seconds % (60 * 60 * 24))}"
   end
 end
 
